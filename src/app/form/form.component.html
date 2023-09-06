@@ -1,0 +1,32 @@
+<div class="flex flex-col items-center gap-8 my-auto">
+  <h2 class="text-3xl font-bold">Form</h2>
+  <form (ngSubmit)="onSubmit()" class="flex flex-col justify-center items-center bg-gray-200 p-8">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="w-full border border-1" [(ngModel)]="name" required />
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      class="w-full border border-1"
+      required
+      [(ngModel)]="email"
+    />
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      class="w-full border border-1"
+      required
+      [(ngModel)]="message"
+    ></textarea>
+    <input type="submit" class="bg-yellow-700 text-white p-2 rounded-md m-5 hover:bg-yellow-800"/>
+    <input type="button" (click)="onSubmit()" value="click" class="bg-yellow-700 text-white p-2 rounded-md m-5 hover:bg-yellow-800" />
+  </form>
+  <div *ngIf="isSubmitted" class="flex flex-col">
+    <h2>FormData</h2>
+    <p>Name: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Message: {{ message }}</p>
+  </div>
+</div>
