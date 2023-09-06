@@ -23,10 +23,29 @@
     <input type="submit" class="bg-yellow-700 text-white p-2 rounded-md m-5 hover:bg-yellow-800"/>
     <input type="button" (click)="onSubmit()" value="click" class="bg-yellow-700 text-white p-2 rounded-md m-5 hover:bg-yellow-800" />
   </form>
-  <div *ngIf="isSubmitted" class="flex flex-col">
+  <!-- <div *ngIf="isSubmitted" class="flex flex-col">
     <h2>FormData</h2>
     <p>Name: {{ name }}</p>
     <p>Email: {{ email }}</p>
     <p>Message: {{ message }}</p>
+  </div> -->
+  <!-- <table *ngIf="isSubmitted" class="table-auto border-collapse border border-slate-400">
+    <thead>
+        <th class="border border-slate-300 p-1 bg-gray-50">#</th>
+        <th class="border border-slate-300 p-1 bg-gray-50">Name</th>
+        <th class="border border-slate-300 p-1 bg-gray-50">Email</th>
+        <th class="border border-slate-300 p-1 bg-gray-50">Message</th>
+    </thead>
+    <tbody *ngFor=" let it of data;let i=index;">
+        <tr>
+            <td class="border border-slate-300 p-1">{{i+1}}</td>
+            <td class="border border-slate-300 p-1">{{ it.name }}</td>
+            <td class="border border-slate-300 p-1">{{ it.email }}</td>
+            <td class="border border-slate-300 p-1">{{ it.message }}</td>
+        </tr>
+    </tbody>
+  </table> -->
+  <div *ngIf="isSubmitted" class="flex flex-row">
+    <app-detail *ngFor="let d of data;let i=index" [detail]="d" [index]="i" (delete)="deletedata($event)"></app-detail>
   </div>
 </div>
