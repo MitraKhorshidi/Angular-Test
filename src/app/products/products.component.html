@@ -1,1 +1,6 @@
-<p>products works!</p>
+<div class="flex flex-col justify-center gap-2 mx-auto">
+    <app-product-detail 
+    *ngFor="let product of productList"
+    [product]="product"
+></app-product-detail>
+</div>

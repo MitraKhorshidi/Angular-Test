@@ -10,10 +10,18 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ProductsComponent implements OnInit {
 
+  productList: Product[] = [];
+
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe({ next: (result: Product[]) => { console.log(result) } })
+    this.productService.getAllProducts().subscribe({
+       next: (result: Product[]) => {
+         console.log(result);
+         this.productList = result; 
+      } 
+    });
 
     const p = {
       title: 'test product',
@@ -24,8 +32,9 @@ export class ProductsComponent implements OnInit {
     }
     this.productService.createProduct(p).subscribe(
       {
-         next: (result: Product) => { console.log(result) }, 
-         error: (error: HttpErrorResponse) => { console.log(error)} });
+        next: (result: Product) => { console.log(result) },
+        error: (error: HttpErrorResponse) => { console.log(error) }
+      });
   }
 
 }

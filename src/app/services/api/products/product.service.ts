@@ -8,6 +8,7 @@ import { Product } from '../models';
 })
 export class ProductService {
 
+
   baseUrl :string = 'https://fakestoreapi.com';
 
   constructor(private httpClient :HttpClient) { }
