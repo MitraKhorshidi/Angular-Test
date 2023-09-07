@@ -9,4 +9,6 @@ import { Product } from '../services/api/models';
 export class ProductDetailComponent {
   @Input() 
   product :Product ={};
+
+  
 }
